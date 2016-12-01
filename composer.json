@@ -1,0 +1,33 @@
+{
+    "name": "pedra/base",
+    "description": "Base for website in PHP",
+    "keywords": ["framework","skeleton","starter","php","web","site","server","side"],
+    "license": "MIT",
+    "type": "project",
+    "homepage": "http://paulorocha.tk/github/pedra/base",
+    "authors": [{
+        "name": "Bill Rocha",
+        "email": "prbr@ymail.com"
+    }],
+    "config": {
+        "vendor-dir": "php/Composer",
+        "bin-dir": "php/Composer/bin",
+        "preferred-install": "dist"
+    },
+    "archive": {
+        "exclude": ["/doc", "/*.json", "/.git", "/*.md", "/php/Config"]
+    },
+    "require": {
+        "php": ">=7.0.9"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {"Config\\": "php/Config/"}
+    },
+    "scripts": {
+        "post-install-cmd":         ["php ./php/base optimize"],
+        "post-update-cmd":          ["php ./php/base optimize"],
+        "post-create-project-cmd":  ["php ./php/base key:generate"]
+    }
+}
