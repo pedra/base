@@ -1,6 +1,6 @@
 <?php
 /**
- * Base
+ * PHP Base
  * @copyright   Bill Rocha - http://google.com/+BillRocha
  * @license     MIT
  * @author      Bill Rocha - prbr@ymail.com
@@ -67,3 +67,6 @@ if(file_exists(_APP.'Composer/autoload.php')) include _APP.'Composer/autoload.ph
 // Error/Exception
 set_error_handler(['Lib\Debug','errorHandler']);
 set_exception_handler(['Lib\Debug', 'exceptionHandler']);
+
+//Onm Cli mode
+if(php_sapi_name() === 'cli') return new Base($argv);
