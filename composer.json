@@ -18,7 +18,8 @@
         "exclude": ["/doc", "/*.json", "/.git", "/*.md", "/php/Config"]
     },
     "require": {
-        "php": ">=7.0.9"
+        "php": ">=7.0.9",
+        "pedra/phtml": "~0.0.1"
     },
     "require-dev": {
     },
