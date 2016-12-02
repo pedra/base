@@ -19,6 +19,7 @@ class Base
 {
 
     private $configKeysPath = null;
+    private $configTemplate = null;
     private $cliPath = null;
     private $timer = 0;
 
@@ -30,6 +31,7 @@ class Base
         //Constants:
         $this->cliPath = __DIR__.'/';
         $this->configKeysPath = _CONFIG.'Key/';
+        $this->configTemplate = _CONFIG.'Template/';
         $this->timer = microtime(true);
 
         //Command line settings...
@@ -130,7 +132,7 @@ class Base
     // Create file (controller/model/library)
     function createFile($name, $type = 'controller')
     {
-        $name = $type == 'html'?strtolower($name):$name;
+        //$name = $type == 'html'?strtolower($name):$name;
         $path = _APP.ucfirst($type).'/';
         $ext = $type == 'html'?'.html':'.php';
 
@@ -144,11 +146,11 @@ class Base
             return "\n\n  WARNNING: access denied in directory '".dirname($fileName)."'\n\n";
 
         //get template
-        $file = file_get_contents($this->cliPath.'templates/'.$type.'.tpl');
+        $file = file_get_contents($this->configTemplate.$type.'.tpl');
 
         //replace %namespace% and %name%
         $file = str_replace('%name%', ucfirst(basename($name)), $file);
-        $namespace = ''; //ucfirst($type).'\\';
+        $namespace = '';
         foreach(explode('/', dirname($name)) as $namespc){
             if($namespc == '.') break;
             $namespace .= ucfirst($namespc).'\\';
@@ -207,7 +209,7 @@ class Base
     function help()
     {
         return '
-      Usage: php <path/to/.app/>limp [command:type] [options]
+      Usage: php index.php [command:type] [options]
 
       key:generate              Generate new keys
       key:list                  List all installed Cyphers
