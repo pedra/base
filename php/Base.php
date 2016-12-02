@@ -49,6 +49,8 @@ class Base
             array_shift($ax);
             if(strpos($a, '-h') !== false || strpos($a, '?') !== false) return $this->help();
             if(strpos($a, 'optimize') !== false) return $this->cmdOptimize(substr($a, 8), $ax);
+            if(strpos($a, 'install') !== false) return $this->cmdInstall(substr($a, 7), $ax);
+            if(strpos($a, 'update') !== false) return $this->cmdUpdate(substr($a, 6), $ax);
             if(strpos($a, 'key:') !== false) return $this->cmdKey(substr($a, 4), $ax);
             if(strpos($a, 'make:') !== false) return $this->cmdMake(substr($a, 5), $ax);
 
@@ -114,6 +116,20 @@ class Base
     {
         //TODO : optimize!
         echo "\n  >> Optimized - success!\n";
+    }
+
+    //Command INSTALL
+    function cmdInstall($v, $arg)
+    {
+        //TODO : optimize!
+        echo "\n  >> Installed - success!\n";
+    }
+
+    //Command UPDATE
+    function cmdUpdate($v, $arg)
+    {
+        //TODO : optimize!
+        echo "\n  >> Updated - success!\n";
     }
 
     // Checa um diretório e cria se não existe - retorna false se não conseguir ou não existir
