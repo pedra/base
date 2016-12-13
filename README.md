@@ -1,5 +1,5 @@
 # Base
-Base for website in PHP
+Basic PHP website.
 
 
 # Install
@@ -9,7 +9,4 @@ Type in the terminal:
 Composer create-project pedra/base ./ 
 ```
 
-Require [PHP 7+](http://www.php.net/) & [Composer](https://getcomposer.org/download/).
-
-----
-_<small>**Att:** _MODE = 'pro' (index.php) require [Java](https://www.java.com) for compression (Javascript, HTML and CSS)</sup>_
+Require [PHP 7](http://www.php.net/) & [Composer](https://getcomposer.org/download/).
